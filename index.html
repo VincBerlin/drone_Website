@@ -6,25 +6,26 @@
     <title>Drone Project Shell</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              primary: '#00A7B8',
-              secondary: '#F7D777',
-              dark: '#2D2D2D',
-              light: '#FDFDFD',
-              'light-gray': '#F5F5F5',
+              primary: '#2C555D', // Dark Teal/Ocean
+              secondary: '#D4A373', // Muted Sand/Gold
+              sand: '#F2F0E9', // Background Beige
+              dark: '#1D1D1D',
+              light: '#FFFFFF',
             },
             fontFamily: {
               sans: ['Open Sans', 'sans-serif'],
               display: ['Montserrat', 'sans-serif'],
+              vibe: ['Calistoga', 'serif'],
             },
             boxShadow: {
-              'soft': '0 4px 20px rgba(0,0,0,0.10)',
+              'soft': '0 4px 20px rgba(0,0,0,0.05)',
             }
           }
         }
@@ -32,8 +33,8 @@
     </script>
     <style>
       body {
-        background-color: #FDFDFD;
-        color: #2D2D2D;
+        background-color: #F2F0E9; /* sand */
+        color: #1D1D1D;
       }
     </style>
   <script type="importmap">

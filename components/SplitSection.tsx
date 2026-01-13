@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
 interface SplitSectionProps {
   id?: string;
@@ -10,7 +9,6 @@ interface SplitSectionProps {
   alt: string;
   ctaLabel?: string;
   reverse?: boolean; // If true, image on left, text on right
-  bgColor?: 'white' | 'light-gray';
 }
 
 const SplitSection: React.FC<SplitSectionProps> = ({ 
@@ -20,49 +18,41 @@ const SplitSection: React.FC<SplitSectionProps> = ({
   body, 
   image, 
   alt, 
-  ctaLabel, 
   reverse = false,
-  bgColor = 'white' 
 }) => {
   return (
     <section 
       id={id} 
-      className={`py-16 md:py-24 ${bgColor === 'light-gray' ? 'bg-light-gray' : 'bg-white'}`}
+      className="py-20 md:py-32 bg-white"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
           
           {/* Text Column */}
-          <div className="flex-1">
+          <div className="flex-1 max-w-xl">
             {kicker && (
-              <span className="block text-secondary font-bold text-sm uppercase tracking-widest mb-3">
-                {kicker}
-              </span>
+              <h2 className="font-display font-bold text-3xl uppercase tracking-[0.15em] text-dark mb-8">
+                {kicker.toUpperCase()}
+              </h2>
             )}
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-dark mb-6">
-              {title}
-            </h2>
-            <div className="prose prose-lg text-gray-600 mb-8 font-sans whitespace-pre-line">
-              {body}
+            
+            <div className="prose prose-lg text-gray-600 mb-8 font-sans leading-relaxed whitespace-pre-line">
+               {/* Just showing body directly for cleaner look */}
+               {body.replace(/TEXT_.*:/, "")}
             </div>
-            {ctaLabel && (
-              <button className="group flex items-center text-primary font-semibold text-lg hover:text-opacity-80 transition-colors">
-                {ctaLabel}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            )}
+            
+            {/* Minimalist divider */}
+            <div className="w-12 h-1 bg-primary mb-6"></div>
           </div>
 
           {/* Media Column */}
-          <div className="flex-1 w-full">
-            <div className="relative rounded-lg overflow-hidden shadow-soft group">
+          <div className="flex-1 w-full h-full">
+            <div className="relative aspect-[4/5] overflow-hidden">
               <img 
                 src={image} 
                 alt={alt} 
-                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
-              {/* Optional decor element */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/20 rounded-full -z-10 blur-xl" />
             </div>
           </div>
 
